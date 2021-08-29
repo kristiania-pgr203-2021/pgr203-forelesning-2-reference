@@ -35,21 +35,32 @@ public class RomanNumeralsTest {
     void shouldTransformSixToVI() {
         assertEquals("VI", toRoman(6));
     }
+    
+    @Test
+    void shouldTransformNineToIX() {
+        assertEquals("IX", toRoman(9));
+    }
+    
+    
 
     private String toRoman(int number) {
-        String result = "";
-        if (number >= 5) {
-            result += "V";
-            number -= 5;
-        }
-        if (number == 4) {
-            result += "IV";
-            number -= 4;
-        }
+        StringBuilder result = new StringBuilder();
+        number = convertRomanDigits(number, result, 9, "IX");
+        number = convertRomanDigits(number, result, 5, "V");
+        number = convertRomanDigits(number, result, 4, "IV");
+
         for (int i = 0; i < number; i++) {
-            result += "I";
+            result.append("I");
         }
-        return result;
+        return result.toString();
+    }
+
+    private int convertRomanDigits(int number, StringBuilder result, int value, String romanDigits) {
+        if (number >= value) {
+            result.append(romanDigits);
+            number -= value;
+        }
+        return number;
     }
 
 }
