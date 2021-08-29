@@ -16,6 +16,11 @@ public class RomanNumeralsTest {
         assertEquals("II", toRoman(2));
     }
 
+    @Test
+    void shouldTransformThreeToIII() {
+        assertEquals("III", toRoman(3));
+    }
+
     private String toRoman(int number) {
         if (number == 2) {
             return "II";
