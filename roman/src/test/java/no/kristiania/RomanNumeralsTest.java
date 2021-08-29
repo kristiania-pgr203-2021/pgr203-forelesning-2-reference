@@ -38,7 +38,7 @@ public class RomanNumeralsTest {
 
     private String toRoman(int number) {
         String result = "";
-        if (number == 5) {
+        if (number >= 5) {
             result += "V";
             number -= 5;
         }
