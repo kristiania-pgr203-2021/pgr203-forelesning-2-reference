@@ -31,8 +31,17 @@ public class RomanNumeralsTest {
         assertEquals("V", toRoman(5));
     }
 
+    @Test
+    void shouldTransformSixToVI() {
+        assertEquals("VI", toRoman(6));
+    }
+
     private String toRoman(int number) {
         String result = "";
+        if (number == 5) {
+            result += "V";
+            number -= 5;
+        }
         if (number == 4) {
             result += "IV";
             number -= 4;
